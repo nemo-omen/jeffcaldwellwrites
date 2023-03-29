@@ -92,7 +92,7 @@ body {
 }
 
 main {
-  margin-top: var(--grid-gutter);
+  margin-block: var(--grid-gutter);
 }
 
 a {
