@@ -1,0 +1,63 @@
+---
+import Icon from '../components/Icon.astro';
+const { type } = Astro.props || '';
+---
+
+<div class:list={['notice', type]}>
+  <div class="notice-icon">
+    <Icon name={type} label={type} />
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  :root {
+    --border-color: var(--fg);
+  }
+  .info {
+    --border-color: var(--secondary);
+  }
+
+  .warning {
+    --border-color: var(--warn);
+  }
+
+  .notice {
+    font-size: var(--size-1);
+    border: 1px solid var(--border-color);
+    --flow-space: var(--size-2);
+    position: relative;
+  }
+
+  .content {
+    padding: var(--size-2);
+  }
+
+  .content:last-child {
+    margin-bottom: 0;
+  }
+
+  .notice-icon {
+    color: var(--border-color);
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block-start: 0;
+    font-size: var(--size-4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--size-2);
+  }
+
+  .notice :global(h2),
+  .notice :global(h3),
+  .notice :global(h4) {
+    font-size: var(--size-3);
+    /* border-bottom: 1px solid var(--border-color); */
+    margin: 0;
+    margin-block-end: var(--size--1);
+    /* padding: 0 0 0.5em 0; */
+  }
+</style>

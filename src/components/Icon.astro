@@ -1,0 +1,28 @@
+---
+import { pathsByName } from './IconPaths.js';
+
+const { name, label } = Astro.props;
+
+const paths: string[] = pathsByName[name] || [];
+---
+<svg
+  aria-label={label}
+  class="c"
+  viewBox="0 0 25 25"
+  fill-rule="evenodd"
+  clip-rule="evenodd"
+>
+{paths.map((path) => (<path d={path}></path>))}
+</svg>
+
+<style>
+  .c {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    transition: all 0.3s ease-out;
+    overflow: visible;
+  }
+</style>
+
+

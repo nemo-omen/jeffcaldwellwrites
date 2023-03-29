@@ -1,0 +1,148 @@
+---
+import Icon from './Icon.astro';
+---
+
+<header role="banner">
+  <div class="header-inner u-container">
+  <a class="site-brand" id="site-brand" href="/">
+    Jeff Caldwell
+  </a>
+  
+    <nav>
+      <ul>
+        <li>
+          <a href="/portfolio">Portfolio</a>
+        </li>
+        <li>
+          <a href="/resume">Resume</a>
+        </li>
+        <li>
+          <a href="/blog">Blog</a>
+        </li>
+        <li>
+          <a href="/about">About Me</a>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <a href="/portfolio">
+            <Icon name="linkedin" /> LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="/resume">
+            <Icon name="github" /> GitHub
+          </a>
+        </li>
+        <li>
+          <a href="/blog">
+            <Icon name="mastodon" /> Mastodon
+          </a>
+        </li>
+        <li>
+          <a href="/about">
+            <Icon name="rss" />RSS
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  <img src="/images/disembodiedhead.png" alt="My Head" class="header-img"/>
+  </div> <!-- /header-inner -->
+</header>
+
+<style>
+  .header-inner {
+    container-name: header;
+    container-type: inline-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--sans);
+    font-weight: 700;
+    flex-wrap: wrap;
+    gap: var(--space-l);
+    padding-block: var(--grid-gutter);
+  }
+
+  .header-img {
+    order: 1;
+  }
+
+  nav {
+    display: flex;
+    gap: var(--space-3xl);
+    font-weight: 500;
+    order: 3;
+  }
+
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    line-height: 1.5;
+  }
+
+  nav ul li a {
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .site-brand {
+    max-width: 7ch;
+    font-size: var(--size-6);
+    text-decoration: none;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+    order: 2;
+    /* font-weight: 800; */
+  }
+
+  @container header (width > 427px) {
+   .header-img {
+    order: 2;
+   }
+   .site-brand {
+    order: 1;
+    text-align: left;
+   }
+   nav {
+    order: 3;
+   }
+  }
+
+  @container (width > 848px) {
+    .header-img {
+      order: 3;
+    }
+
+    nav {
+      order: 2;
+    }
+
+    .site-brand {
+      order: 1;
+      text-align: left;
+    }
+  }
+
+  @media (min-width: 920px) {
+    .header-inner {
+      justify-content: space-between;
+    }
+  }
+
+  @media (min-width: 472px) {
+    .header-inner {
+      border-bottom: 2px solid var(--fg);
+    }
+  }
+
+  
+</style>
