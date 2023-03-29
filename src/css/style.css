@@ -56,21 +56,28 @@
   --grid-max-width: 77.50rem;
   --grid-gutter: var(--space-s-l, clamp(1.13rem, calc(0.65rem + 2.39vw), 2.50rem));
   --grid-columns: 12;
+
+  /* Transition Rules */
+  --transition-default: 0.2s ease-in-out;
 }
 
-* {
+*, *::after, *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
   background-color: var(--bg);
   color: var(--fg);
+  line-height: 1.5;
 }
 
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--serif);
 }
 
 .u-container {
@@ -84,6 +91,53 @@ body {
   gap: var(--grid-gutter);
 }
 
+main {
+  margin-top: var(--grid-gutter);
+}
+
 a {
   color: currentColor;
+  transition: 
+    color var(--transition-default),
+    text-decoration-color var(--transition-default);
+  text-decoration-thickness: 0.2ex;
+  text-underline-offset: 0.3ex;
+}
+
+a:hover,
+a:focus {
+  text-decoration-color: transparent;
+}
+
+button,
+.button {
+  font-family: var(--sans);
+  font-size: var(--size-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: var(--fg);
+  color: var(--bg);
+  padding: 0.5em;
+  cursor: pointer;
+  transition: 
+    color var(--transition-default),
+    background-color var(--transition-default);
+}
+
+button:hover,
+button:focus,
+.button:hover,
+.button:focus {
+  background-color: var(--accent);
+  color: var(--fg);
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--sans);
 }

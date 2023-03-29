@@ -3,8 +3,52 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Welcome to Astro.">
+  <div class="hero u-grid">
+    <h1 class="callout">
+      I write about complex topics and make them easy for readers to understand.
+    </h1>
 
+    <div class="message-section u-grid">
+      <p class="message">
+        Years of experience in journalism and a background in computer science give me a unique ability to turn difficult technical topics into concise, simple documentation and guides that regular people can use.
+      </p>
+
+      <div class="button-group u-grid">
+        <a href="/resume" class="button">My Resume</a>
+        <a href="/portfolio" class="button">My Portfolio</a>
+      </div>
+    </div>
+  </div>
 </Layout>
 
 <style>
+  .hero {
+  }
+  .message-section {
+    grid-template-rows: 1fr auto;
+  }
+  .callout {
+    font-size: var(--size-5);
+    line-height: 1;
+    /* line-height: 1.25; */
+    background-color: var(--accent);
+    padding: var(--grid-gutter);
+  }
+  .message {
+    font-size: var(--size-2);
+    line-height: 1.8;
+    /* background-color: var(--accent); */
+  }
+  .button-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 920px) {
+   .hero {
+    grid-template-columns: repeat(2, 1fr);
+   } 
+   /* .message { */
+   /*  background-color: transparent; */
+   /*  padding: 0; */
+   /* } */
+  }
 </style>
