@@ -87,7 +87,7 @@ import Icon from './Icon.astro';
   }
 
   nav ul li a {
-    font-size: 1.25rem;
+    font-size: var(--size-0);
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -101,36 +101,39 @@ import Icon from './Icon.astro';
     margin: 0;
     text-align: center;
     order: 2;
-    /* font-weight: 800; */
   }
 
   @container header (width > 427px) {
    .header-img {
     order: 2;
+    width: 20cqw;
    }
    .site-brand {
     order: 1;
     text-align: left;
+    font-size: 10cqw;
    }
    nav {
     order: 3;
     gap: var(--space-3xl);
-    justify-content: space-between;
    }
   }
 
   @container (width > 848px) {
     .header-img {
       order: 3;
+      width: unset;
     }
 
     nav {
       order: 2;
+      width: unset;
     }
 
     .site-brand {
       order: 1;
       text-align: left;
+      font-size: var(--size-6);
     }
   }
 
