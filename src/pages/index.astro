@@ -4,9 +4,11 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Jeff Caldwell | Technical Writing">
   <div class="hero u-grid">
-    <h1 class="callout">
-      I write about complex topics and make them easy for readers to understand.
-    </h1>
+    <div class="callout-section">
+      <h1 class="callout">
+        I write about complex topics and make them easy for readers to understand.
+      </h1>
+    </div>
 
     <div class="message-section u-grid">
       <p class="message">
@@ -43,22 +45,20 @@ import Layout from '../layouts/Layout.astro';
   }
   .message-section {
     grid-template-rows: 1fr auto;
+    container-type: inline-size;
+  }
+  .callout-section {
+    container-type: inline-size;
   }
   .callout {
-    font-size: var(--size-5);
+    font-size: 9cqw;
     line-height: 1;
-    /* line-height: 1.25; */
   }
   .message {
-    /* font-size: 2cqw; */
-    font-size: var(--size-3);
+    font-size: 6.1cqw;
     line-height: 1.4;
     background-color: var(--accent);
     padding: var(--grid-gutter);
-    /* background-color: var(--accent); */
-    /* border-bottom: 0.3ex solid var(--accent); */
-    /* background: var(--fg); */
-    /* color: var(--bg); */
   }
   .button-group {
     grid-template-columns: repeat(2, 1fr);
@@ -85,25 +85,25 @@ import Layout from '../layouts/Layout.astro';
   .top {
     grid-column: span 4;
     display: grid;
-    grid-template-columns: 1fr 1fr;
     gap: var(--grid-gutter);
     font-size: var(--size-2);
   }
 
   .top h3 {
     font-size: var(--size-3);
-    /* order: 2; */
   }
 
   .top img {
     order: 1;
-    width: 100%;
+    width: 100cqw;
+    height: auto;
     object-fit: cover;
     object-position: center;
   }
 
   .top .feature-article-content {
     order: 2;
+    padding: var(--space-xs);
   }
 
   @media (min-width: 920px) {
@@ -114,11 +114,21 @@ import Layout from '../layouts/Layout.astro';
    .callout {
     background-color: var(--accent);
     padding: var(--grid-gutter);
+    font-size: 11cqi;
    }
 
    .message {
     padding: 0;
     background-color: transparent;
+   }
+
+   .top {
+    grid-template-columns: 1fr 1fr;
+   } 
+
+   .top img {
+    width: 50cqw;
+    height: 100%;
    }
    
   }
