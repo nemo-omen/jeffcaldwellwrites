@@ -1,5 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+const articles = [
+  {
+    title: 'Intro to Genetic Algorithms',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel quam elementum pulvinar.',
+    img: {
+      src: '/images/Darwin.webp',
+      alt: 'Charles Darwin'
+    },
+    href: '',
+  },
+  {
+    title: 'What is Phone Phreaking?',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel quam elementum pulvinar.',
+    img: {
+      src: '/images/marissa-lewis-MWr9_OE4ZA8-unsplash.jpg',
+      alt: 'Phone Booth'
+    },
+    href: '',
+  },
+  {
+    title: 'The Origins of Virtual Worlds',
+    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel quam elementum pulvinar.',
+    img: {
+      src: '/images/umberto-jXd2FSvcRr8-unsplash.jpg',
+      alt: 'Motherboard'
+    },
+    href: '',
+  }
+];
 ---
 
 <Layout title="Jeff Caldwell | Technical Writing">
@@ -27,15 +58,14 @@ import Layout from '../layouts/Layout.astro';
     </h2>
     
     <div class="feature-content u-grid">
-     <article class="feature-article top">
-      <div class="feature-article-content">
-      <h3>Intro to Genetic Algorithms</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Varius quam quisque id diam vel quam elementum pulvinar.
-        </p>
-      </div>
-      <img src="/images/Darwin.webp" alt="Charles Darwin">
-     </article> 
+      {articles.map((article, index) => (
+        <Card 
+          title={article.title} 
+          first={index == 0 ? true : false}
+          img={article.img}
+          body={article.body}
+          href={article.href} />)
+      )}
     </div>
   </div>
 </Layout>
@@ -49,19 +79,25 @@ import Layout from '../layouts/Layout.astro';
   }
   .callout-section {
     container-type: inline-size;
+    container-name: callout-section;
   }
   .callout {
     font-size: 9cqw;
     line-height: 1;
   }
   .message {
-    font-size: 6.1cqw;
+    font-size: 5.5cqw;
     line-height: 1.4;
     background-color: var(--accent);
-    padding: var(--grid-gutter);
+    /* padding: var(--grid-gutter); */
+    padding: 3cqi;
   }
   .button-group {
     grid-template-columns: repeat(2, 1fr);
+    container-type: inline-size;
+  }
+  .button {
+    font-size: 5cqi;
   }
 
   .feature {
@@ -69,51 +105,31 @@ import Layout from '../layouts/Layout.astro';
     container-type: inline-size;
     margin-top: var(--grid-gutter);
   }
+  .feature-article {
+    background-color: var(--accent);
+    container-type: inline-size;
+  }
+
   .feature-title {
-    font-size: var(--size-4);
+    /* font-size: var(--size-4); */
+    font-size: 7cqi;
     text-align: center;
     line-height: 1;
   }
   .feature-content {
     margin-top: var(--grid-gutter);
     grid-template-columns: repeat(4, 1fr);
-  }
-  .feature-article {
-    background-color: var(--accent);
-  }
-
-  .top {
-    grid-column: span 4;
-    display: grid;
-    gap: var(--grid-gutter);
-    font-size: var(--size-2);
-  }
-
-  .top h3 {
-    font-size: var(--size-3);
-  }
-
-  .top img {
-    order: 1;
-    width: 100cqw;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-  }
-
-  .top .feature-article-content {
-    order: 2;
-    padding: var(--space-xs);
-  }
-
-  @media (min-width: 920px) {
+  }  
+  
+  @media (min-width: 750px) {
    .hero {
     grid-template-columns: repeat(2, 1fr);
    }
 
    .callout {
     background-color: var(--accent);
-    padding: var(--grid-gutter);
+    /* padding: var(--grid-gutter); */
+    padding: 6cqi;
     font-size: 11cqi;
    }
 
@@ -121,15 +137,12 @@ import Layout from '../layouts/Layout.astro';
     padding: 0;
     background-color: transparent;
    }
+  }
 
-   .top {
-    grid-template-columns: 1fr 1fr;
-   } 
-
-   .top img {
-    width: 50cqw;
-    height: 100%;
-   }
-   
+  @container callout-section (min-width: 85vw) {
+    .callout {
+      /* text-align: center; */
+      /* padding: var(--grid-gutter); */
+    }
   }
 </style>

@@ -3,11 +3,100 @@ export interface Props {
 	title: string;
 	body: string;
 	href: string;
+  first: boolean;
+  img: Record<string, string>;
 }
 
-const { href, title, body } = Astro.props;
----
+const { href, title, body, first, img } = Astro.props;
 
+const firstClass = first ? 'top' : '';
+---
+<article class={firstClass ? 'feature-article top' : 'feature-article'}>
+  <div class="article-content">
+    <h3 class="article-title">{title}</h3>
+    <p class="article-body">{body}</p>
+  </div>
+  <img src={img.src} alt={img.alt} class="article-image">
+</article>
 
 <style>
+.feature-article {
+  background-color: var(--accent);
+  container-type: inline-size;
+  container-name: article-preview;
+  display: grid;
+  gap: 0;
+  font-size: var(--size-2);
+  grid-column: span 4;
+}
+
+.top {
+  grid-column: span 4;
+  /* display: grid; */
+  /* gap: 0; */
+  /* font-size: var(--size-2); */
+}
+
+.article-content {
+  container-type: inline-size;
+  container-name: content;
+}
+
+.article-title {
+  /* font-size: var(--size-3); */
+  font-size: 7cqi;
+}
+
+.article-body {
+  font-size: 5cqi;
+}
+
+.article-image {
+  order: 1;
+  width: 100cqw;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.article-content {
+  order: 2;
+  padding: 3cqi;
+  /* padding: var(--space-xs); */
+}
+
+@media (min-width: 920px) {
+  .feature-article {
+   grid-column: span 2; 
+  }
+
+  .top {
+    grid-template-columns: 1fr 1fr;
+    /* gap: var(--grid-gutter); */
+    grid-column: span 4; 
+  }
+}
+
+@container article-preview (min-width: 900px) {
+  .article-image {
+    max-width: 50cqw;
+    height: 100%;
+    /* aspect-ratio: 16 / 9; */
+  }
+  .article-content {
+    padding: 2cqi;
+  }
+}
+
+@container content (min-width: 600px) {
+  .article-title {
+    font-size: 5cqi;
+  }
+  .article-body {
+    font-size: 4cqi;
+  }
+}
+
+
 </style>
