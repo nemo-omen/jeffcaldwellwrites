@@ -1,12 +1,22 @@
 :root {
   /* Colors */
-  --blue: #091637;
+  --blue: #09164b;
+  --blue-hsl: 223, 72%, 13%;
   --orange: #d7b389;
-  --gray: #e4dadf;
+  --orange-hsl: 32, 49%, 69%;
+  --gray: #f3e9ee;
+  --gray-hsl: 330, 16%, 87%;
 
   --fg: var(--blue);
+  --fg-hsl: var(--blue-hsl);
   --bg: var(--gray);
+  --bg-hsl: var(--gray-hsl);
   --accent: var(--orange);
+  --accent-hsl: var(--orange-hsl);
+
+  --fg-alpha-10: hsl(var(--fg-hsl), 10%);
+  --fg-alpha-20: hsl(var(--fg-hsl), 20%);
+  --fg-alpha-30: hsl(var(--fg-hsl), 30%);
 
   /* Fonts */
   --sans: 'Work Sans', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
@@ -80,6 +90,11 @@ body {
   font-family: var(--serif);
 }
 
+::selection {
+  color: var(--bg);
+  background-color: var(--fg);
+}
+
 .u-container {
   max-width: var(--grid-max-width);
   padding-inline: var(--grid-gutter);
@@ -140,4 +155,14 @@ h2,
 h3,
 h4 {
   font-family: var(--sans);
+}
+
+.sr-only {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
 }

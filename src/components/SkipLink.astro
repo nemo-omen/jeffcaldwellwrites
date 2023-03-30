@@ -1,0 +1,42 @@
+---
+
+---
+
+<a href="#main" class="skip-link button" id="skip-link">Skip to Content</a>
+
+<style>
+  .skip-link {
+  position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25em;
+    overflow: hidden;
+    font-family: var(--sans);
+    font-size: var(--size-0);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    text-decoration: none;
+    /* line-height: 1; */
+    outline-offset: unset;
+    background-color: transparent;
+    border: 0.3ex solid transparent;
+    outline-color: transparent;
+    transition: transform var(--transition-default), 
+                color var(--transition-default),
+                background-color var(--transition-default);
+    z-index: 1;
+  }
+
+  .skip-link:focus {
+   /* transform: translate(-50%, 0.5em); */
+   color: var(--bg);
+   /* border-color: var(--bg); */
+   background-color: var(--fg);
+   opacity: 1;
+  }
+</style>
