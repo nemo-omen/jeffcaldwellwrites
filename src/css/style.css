@@ -112,16 +112,15 @@ main {
 
 a {
   color: currentColor;
-  transition: 
-    color var(--transition-default),
-    text-decoration-color var(--transition-default);
   text-decoration-thickness: 0.2ex;
   text-underline-offset: 0.3ex;
 }
 
 a:hover,
-a:focus {
+a:focus,
+a:focus-visible {
   text-decoration-color: transparent;
+  text-decoration-thickness: 0;
 }
 
 button,
@@ -143,8 +142,10 @@ button,
 
 button:hover,
 button:focus,
+button:focus-visible,
 .button:hover,
-.button:focus {
+.button:focus,
+.button:focus-visible {
   background-color: var(--accent);
   color: var(--fg);
 }
@@ -157,12 +158,19 @@ h4 {
   font-family: var(--sans);
 }
 
-.sr-only {
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
+.visible-hidden {
+  clip: rect(1px 1px 1px 1px);
   height: 1px;
-  width: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
+  width: 1px;
+}
+
+.visible-hidden:focus {
+  clip: auto;
+  height: auto;
+  overflow: auto;
+  position: absolute;
+  width: auto;
 }

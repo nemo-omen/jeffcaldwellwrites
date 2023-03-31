@@ -4,9 +4,9 @@ import Icon from './Icon.astro';
 
 <header role="banner">
   <div class="header-inner u-container">
-  <a class="site-brand" id="site-brand" href="/">
-    Jeff Caldwell
-  </a>
+    <a class="site-brand" id="site-brand" href="/">
+      Jeff Caldwell
+    </a>
   
     <nav role="navigation">
       <ul>
@@ -23,7 +23,7 @@ import Icon from './Icon.astro';
           <a href="/about">About Me</a>
         </li>
       </ul>
-      <ul>
+      <!-- <ul>
         <li>
           <a href="/portfolio">
             <Icon name="linkedin" /> LinkedIn
@@ -44,7 +44,7 @@ import Icon from './Icon.astro';
             <Icon name="rss" />RSS
           </a>
         </li>
-      </ul>
+      </ul> -->
     </nav>
 
   <img src="/images/head.webp" alt="My Head" class="header-img"/>
@@ -56,13 +56,14 @@ import Icon from './Icon.astro';
     container-name: header;
     container-type: inline-size;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-family: var(--sans);
     font-weight: 700;
     flex-wrap: wrap;
     gap: var(--space-l);
     padding-block: var(--grid-gutter);
+    /* padding-inline: 0; */
   }
 
   .header-img {
@@ -70,16 +71,20 @@ import Icon from './Icon.astro';
   }
 
   nav {
-    display: flex;
-    gap: var(--space-xl);
-    font-weight: 500;
+    /* display: flex; */
+    /* gap: var(--space-xl); */
     order: 3;
+    width: 100%;
   }
 
   nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15cqi;
   }
 
   nav ul li {
@@ -87,42 +92,66 @@ import Icon from './Icon.astro';
   }
 
   nav ul li a {
-    font-size: var(--size-0);
+    /* font-size: var(--size-0); */
+    font-size: 7cqi;
+    font-weight: 600;
     display: flex;
-    align-items: center;
-    gap: 0.25rem;
+    /* align-items: center; */
+    /* gap: 0.25rem; */
   }
 
   .site-brand {
-    max-width: 7ch;
-    font-size: var(--size-6);
+    font-size: 15cqi;
+    /* font-size: var(--size-6); */
     text-decoration: none;
     line-height: 1;
-    margin: 0;
     text-align: center;
+    margin: 0;
+    /* max-width: 7ch; */
     order: 2;
+    /* display: flex; */
+    outline-offset: 0.3ex;
+  }
+  
+  @container header (width < 300px) {
+    .site-brand {
+      font-size: 15cqi;
+    }
+    nav ul li a {
+      font-size: 9cqi;
+    }
   }
 
   @container header (width > 427px) {
    .header-img {
     order: 2;
-    width: 20cqw;
+    width: 15cqi;
    }
+
    .site-brand {
     order: 1;
     text-align: left;
-    font-size: 10cqw;
+    font-size: 8cqw;
    }
+
    nav {
     order: 3;
     gap: var(--space-3xl);
    }
+
+   nav ul {
+    gap: 3cqi;
+   }
+
+   nav ul li a {
+    font-size: 4cqi;
+   }
   }
 
-  @container (width > 848px) {
+  @container header (width > 848px) {
     .header-img {
       order: 3;
-      width: unset;
+      width: 10cqi;
     }
 
     nav {
@@ -130,10 +159,15 @@ import Icon from './Icon.astro';
       width: unset;
     }
 
+    nav ul li a {
+      font-size: 2cqi;
+    }
+
     .site-brand {
       order: 1;
       text-align: left;
-      font-size: var(--size-6);
+      font-size: 6cqi;
+      /* font-size: var(--size-6); */
     }
   }
 
@@ -146,6 +180,12 @@ import Icon from './Icon.astro';
   @media (min-width: 472px) {
     .header-inner {
       border-bottom: 2px solid var(--fg);
+    }
+  }
+
+  @media (max-width: 470px) {
+    .header-inner {
+      justify-content: center;
     }
   }
 
