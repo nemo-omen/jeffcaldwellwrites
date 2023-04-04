@@ -61,10 +61,13 @@
 
   /* Custom pairs */
   --space-s-l: clamp(1.13rem, calc(0.65rem + 2.39vw), 2.50rem);
-
+  --space-m-xl: clamp(1.69rem, calc(0.97rem + 3.59vw), 3.75rem);
   /* Grid Rules */
-  --grid-max-width: 77.50rem;
-  --grid-gutter: var(--space-s-l, clamp(1.13rem, calc(0.65rem + 2.39vw), 2.50rem));
+  --grid-max-width: 90rem;
+  /* --grid-max-width: 155rem; */
+  
+  /* --grid-gutter: var(--space-s-l, clamp(1.13rem, calc(0.65rem + 2.39vw), 2.50rem)); */
+  --grid-gutter: var(--space-m-xl, clamp(1.69rem, calc(1.22rem + 2.32vw), 3.75rem));
   --grid-columns: 12;
 
   /* Transition Rules */
