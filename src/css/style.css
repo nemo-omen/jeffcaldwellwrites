@@ -63,7 +63,7 @@
   --space-s-l: clamp(1.13rem, calc(0.65rem + 2.39vw), 2.50rem);
   --space-m-xl: clamp(1.69rem, calc(0.97rem + 3.59vw), 3.75rem);
   /* Grid Rules */
-  --grid-max-width: 90rem;
+  --grid-max-width: 77rem;
   /* --grid-max-width: 155rem; */
   
   /* --grid-gutter: var(--space-s-l, clamp(1.13rem, calc(0.65rem + 2.39vw), 2.50rem)); */
