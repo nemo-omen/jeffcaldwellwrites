@@ -14,7 +14,9 @@ const firstClass = first ? 'top' : '';
 
 <li class={firstClass ? 'feature-article top' : 'feature-article'}>
   <div class="article-content">
-    <h3 class={firstClass ? 'top-title' : 'article-title'}>{title}</h3>
+    <a href={href} class="article-link">
+      <h3 class={firstClass ? 'top-title' : 'article-title'}>{title}</h3>
+    </a>
     <p class="article-body">{body}</p>
   </div>
   <img src={img.src} alt={img.alt} class="article-image" />
